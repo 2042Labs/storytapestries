@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * Various funcions
-* Version 6.2.4
+* Version 6.2.7
 *
 */
 
@@ -631,7 +631,7 @@ global $wppa_session;
 		}
 		else $wppa['out'] = '<span style="color:red">ERROR: Missing function wppa_theme(), check the installation of WPPA+. Remove customized wppa_theme.php</span>';
 		global $wppa_version; 
-		$expected_version = '6-1-15-000';
+		$expected_version = '6-2-7-000';
 		if ( $wppa_version != $expected_version ) {
 			wppa_dbg_msg( 'WARNING: customized wppa-theme.php is out of rev. Expected version: '.$expected_version.' found: '.$wppa_version, 'red' );	
 		}
@@ -1831,7 +1831,7 @@ static $user;
 	$dellink = '';
 	if ( ! $wppa['is_filmonly'] && ! $wppa['is_slideonly'] ) {
 		if ( ! wppa_is_user_blacklisted() ) {
-			if ( ( wppa_user_is( 'administrator' ) ) || ( wppa_get_user() == wppa_get_photo_owner( $id ) && wppa_switch( 'upload_edit' ) ) ) {
+			if ( ( wppa_user_is( 'administrator' ) ) || ( current_user_can( 'wppa_moderate' ) ) || ( wppa_get_user() == wppa_get_photo_owner( $id ) && wppa_switch( 'upload_edit' ) ) ) {
 				$editlink = '
 					<div style="float:right; margin-right:6px;" >' .
 						'<a' .
