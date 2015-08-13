@@ -1,10 +1,10 @@
 /* -- WPPA+ Runtime parameters
 /*
-/* Dynamicly Created on 2015-08-05T09:49:46+00:00
+/* Dynamicly Created on 2015-08-12T06:19:16+00:00
 /*
 */
 
-	wppaVersion = "6-2-07-000";
+	wppaVersion = "6-2-08-000";
 	wppaBackgroundColorImage = "#eeeeee";
 	wppaPopupLinkType = "photo";
 	wppaAnimationType = "fadeover";
