@@ -200,7 +200,7 @@ function team_body_flat_bg($post_id)
 		$team_thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), $team_items_thumb_size );
 		$team_thumb_url = $team_thumb['0'];
 		
-		
+		$thumb_alt_text = get_post_meta(get_post_thumbnail_id(get_the_ID()) , '_wp_attachment_image_alt', true);
 		
 		
 		if($i%2==0)
@@ -224,29 +224,29 @@ function team_body_flat_bg($post_id)
 			
 			if($team_items_link_to_post == 'yes')
 				{
-				$team_body.= '<a href="'.get_permalink(get_the_ID()).'"><img src="'.$team_thumb_url.'" /></a>';
+				$team_body.= '<a href="'.get_permalink(get_the_ID()).'"><img alt="'.$thumb_alt_text.'" src="'.$team_thumb_url.'" /></a>';
 				}
 			else if($team_items_link_to_post == 'custom')
 				{
 					if(!empty($team_member_link_to_post))
 						{
-						$team_body.= '<a href="'.$team_member_link_to_post.'"><img src="'.$team_thumb_url.'" /></a>';
+						$team_body.= '<a href="'.$team_member_link_to_post.'"><img alt="'.$thumb_alt_text.'" src="'.$team_thumb_url.'" /></a>';
 						}
 					else
 						{
-						$team_body.= '<a href="#"><img src="'.$team_thumb_url.'" /></a>';
+						$team_body.= '<a href="#"><img alt="'.$thumb_alt_text.'" src="'.$team_thumb_url.'" /></a>';
 						}
 					
 				}
 			else if($team_items_link_to_post == 'popup')
 				{
-					$team_body.= '<img teamid="'.get_the_ID().'" class="team-popup" src="'.$team_thumb_url.'" />';
+					$team_body.= '<img alt="'.$thumb_alt_text.'" teamid="'.get_the_ID().'" class="team-popup" src="'.$team_thumb_url.'" />';
 					
 				}
 				
 			else
 				{
-				$team_body.= '<img src="'.$team_thumb_url.'" />';
+				$team_body.= '<img alt="'.$thumb_alt_text.'" src="'.$team_thumb_url.'" />';
 				}
 			$team_body.= '</div>';
 			}

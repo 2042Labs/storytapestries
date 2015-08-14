@@ -1,10 +1,10 @@
-=== Team ===
+﻿=== Team ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
 	Tags: team, members profiles, our teams, team members, team plugin wordpress, meet the team
 	Requires at least: 3.8
-	Tested up to: 4.2
-	Stable tag: 1.5
+	Tested up to: 4.2.4
+	Stable tag: 1.6
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,9 @@ then paste this shortcode anywhere in your page to display Team gird.<br />
 == Changelog ==
 
 
+	= 1.6=
+	
+    * 25/02/2015 add - add thumbnail alt tag.
 
 	= 1.5=
 	
