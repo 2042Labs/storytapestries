@@ -595,33 +595,35 @@ global $wppa_session;
 		</select>';
 
 		// photo tag
-		$id = 'wppa-ss-phototag-'.wppa('mocc');
-		$result .= '
-		<select'.
-			' id="' . $id . '"' .
-			' name="wppa-ss-phototag"' .
-			' style="display:none;margin:2px;padding:0;vertical-align:top;"' .
-			' onchange="wppaSuperSearchSelect( '.wppa('mocc').' );"' .
-			' size="' . ( min( count( $taglist ), '6' ) ) . '"' .
-			' multiple' .
-			' title="' .
-				esc_attr( __a( 'CTRL+Click to add/remove option.' ) ) . "\n" .
-				esc_attr( __a( 'Items must meet all selected options.' ) ) .
-				'"' .
-			' >';
-			foreach ( array_keys( $taglist ) as $tag ) {
-				$sel = in_array ( $tag, $ss_tags );
-				$result .=
-				'<option' .
-					' value="'.$tag.'"' .
-					' class="' . $id . '"' .
-					( $sel ? ' selected="selected"' : '' ) .
-					' >' .
-						$tag .
-				'</option>';
-			}
-		$result .=
-		'</select>';
+		if ( ! empty( $taglist ) ) {
+			$id = 'wppa-ss-phototag-'.wppa('mocc');
+			$result .= '
+			<select'.
+				' id="' . $id . '"' .
+				' name="wppa-ss-phototag"' .
+				' style="display:none;margin:2px;padding:0;vertical-align:top;"' .
+				' onchange="wppaSuperSearchSelect( '.wppa('mocc').' );"' .
+				' size="' . ( min( count( $taglist ), '6' ) ) . '"' .
+				' multiple' .
+				' title="' .
+					esc_attr( __a( 'CTRL+Click to add/remove option.' ) ) . "\n" .
+					esc_attr( __a( 'Items must meet all selected options.' ) ) .
+					'"' .
+				' >';
+				foreach ( array_keys( $taglist ) as $tag ) {
+					$sel = in_array ( $tag, $ss_tags );
+					$result .=
+					'<option' .
+						' value="'.$tag.'"' .
+						' class="' . $id . '"' .
+						( $sel ? ' selected="selected"' : '' ) .
+						' >' .
+							$tag .
+					'</option>';
+				}
+			$result .=
+			'</select>';
+		}
 
 		// photo text
 		$id = 'wppa-ss-phototext-'.wppa('mocc');

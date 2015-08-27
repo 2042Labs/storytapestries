@@ -2,7 +2,7 @@
 Contributors: opajaap
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=OpaJaap@OpaJaap.nl&item_name=WP-Photo-Album-Plus&item_number=Support-Open-Source&currency_code=USD&lc=US
 Tags: photo, album, gallery, slideshow, video, audio, lightbox, iptc, exif, cloudinary, fotomoto
-Version: 6.2.9
+Version: 6.2.11
 Stable tag: trunk
 Author: J.N. Breetvelt
 Author URI: http://www.opajaap.nl/
@@ -188,6 +188,40 @@ Oh, just Google on 'picture resizer' and you will find a bunch of free programs 
 == Changelog ==
 
 See for additional information: http://wppa.opajaap.nl/?page_id=1459
+
+= 6.2.11 =
+
+= Bug Fixes =
+
+* If no tags or cats were used, the 'need conversion' message kept re-appearing. Fixed.
+* Fixed a potential server error message in import files that occurred when the default upload album was deleted.
+* Fixed an error in SuperSearch box when there are no phototags in the system.
+
+= 6.2.10 =
+
+= Bug Fixes =
+
+* Added missing images for fullsize lightbox display buttons.
+* The author of last comment given is now shown in the subtext on the comment widget and the last comment in its tooltip.
+* Superview photos now shows photos only.
+
+= New Features =
+
+* Checkbox in Table VII-B11: Home after upload. After successfull upload, go to the home page.
+* Table II-D4.1 Display Comment count under default Thumbnail.
+* After ajax replaces wppa container content, the page will scroll to the right position.
+* Table VIII-B10.1. Delete all auto pages.
+* Table IX-B16: Confirm create ( album ). Asks if you really want to create an album on album admin page. Default on.
+
+= Other Changes =
+
+* The way photo tags and album cats are stored has changed, and the characters #, @ and & are added to the list of illegal characters in tags and cats.
+If you use tags, you will be requested to run the update procedure Fix tags in Table VIII-B16, and Fix cats in Table VIII-B17.
+* Improved way to find the origin sitename in notifiction emails.
+* All js files are now in subdirectory js/
+* Lifted the limitation that having more than approx 20.000 photos in an album or in the results of a search action on systems with 128 Mb caused an Memory exhausted server error.
+You can now have 40.000 photos in an album or as a search result ( simple search, supersearch or tag(s) ) on systems with only 32 Mb available server memory without getting the error.
+However, it is still recommended to have at least 64Mb memory available.
 
 = 6.2.9 =
 

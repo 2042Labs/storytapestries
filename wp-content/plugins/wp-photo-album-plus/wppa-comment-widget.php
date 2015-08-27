@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * display the recent commets on photos
-* Version 6.2.0
+* Version 6.2.10
 */
 
 if ( ! defined( 'ABSPATH' ) ) die( "Can't load this file directly" );
@@ -63,9 +63,12 @@ class wppaCommentWidget extends WP_Widget {
 
 				$title = '';
 				$comments = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `".WPPA_COMMENTS."` WHERE `photo` = %s ORDER BY `timestamp` DESC", $id ), ARRAY_A );
-				if ( $comments ) foreach ( $comments as $comment ) {
-					$title .= $comment['user'].' '.__a( 'wrote' ).' '.wppa_get_time_since( $comment['timestamp'] ).":\n";
-					$title .= $comment['comment']."\n\n";
+				if ( $comments ) {
+					$first_comment = $comments['0'];
+					foreach ( $comments as $comment ) {
+						$title .= $comment['user'].' '.__a( 'wrote' ).' '.wppa_get_time_since( $comment['timestamp'] ).":\n";
+						$title .= $comment['comment']."\n\n";
+					}
 				}
 				$title = esc_attr( strip_tags( trim ( $title ) ) );
 				
@@ -79,7 +82,7 @@ class wppaCommentWidget extends WP_Widget {
 			else {
 				$widget_content .= __a('Photo not found.', 'wppa_theme');
 			}
-			$widget_content .= "\n\t".'<span style="font-size:'.wppa_opt( 'wppa_fontsize_widget_thumb' ).'px; cursor:pointer;" title="'.esc_attr($comment['comment']).'" >'.$comment['user'].'</span>';
+			$widget_content .= "\n\t".'<span style="font-size:'.wppa_opt( 'wppa_fontsize_widget_thumb' ).'px; cursor:pointer;" title="'.esc_attr($first_comment['comment']).'" >'.$first_comment['user'].'</span>';
 			$widget_content .= "\n".'</div>';
 			
 		}	

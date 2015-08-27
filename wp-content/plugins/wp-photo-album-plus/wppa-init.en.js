@@ -1,10 +1,10 @@
 /* -- WPPA+ Runtime parameters
 /*
-/* Dynamicly Created on 2015-08-14T09:49:39+00:00
+/* Dynamicly Created on 2015-08-27T06:58:39+00:00
 /*
 */
 
-	wppaVersion = "6-2-09-000";
+	wppaVersion = "6-2-11-001";
 	wppaBackgroundColorImage = "#eeeeee";
 	wppaPopupLinkType = "photo";
 	wppaAnimationType = "fadeover";
@@ -80,7 +80,7 @@
 	wppaSlideSwipe = false;
 	wppaMaxCoverWidth = 1024;
 	wppaDownLoad = "Download";
-	wppaSlideToFullpopup = false; 
+	wppaSlideToFullpopup = false;
 	wppaComAltSize = 75;
 	wppaBumpViewCount = true;
 	wppaShareHideWhenRunning = true;
@@ -93,6 +93,6 @@
 	wppaOvlHires = false;
 	wppaSlideVideoStart = false;
 	wppaSlideAudioStart = false;
-	wppaAudioHeight = 28; 
+	wppaAudioHeight = 28;
 	wppaRel = "data-rel";
 	
