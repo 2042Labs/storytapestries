@@ -97,9 +97,10 @@ input.text.subscribe{
 }
 .menu_line{
     overflow:hidden;
+    padding:0 38px;
 }
 .menu-header{
-    padding: 0 28px;
+    padding: 0 28px 0 0;
     float:left;
 }
 .menu-header a{
@@ -116,21 +117,41 @@ input.text.subscribe{
     color:#fff;
     background:#6f2d1e;
 }
-.sub-menu{
-    display:none;
+.menu-header .menu-item:hover a {
+    background:#6f2d1e;
+    color:#fff;
+    display:block;
 }
-.search{
+ul.sub-menu{
+    display:none;
+    background:#6f2d1e;
+    padding:18px 6px;
+}
+ul.sub-menu a {
+    color:#fff;
+}
+.menu-header .sub-menu li{
+    display:block;
+}
+.menu-header  .menu-item .sub-menu a:hover{
+    color:#000;
+    background:#fff;
+}
+.menu-item:hover > .sub-menu{
+    display:block;
+    position:absolute;
+}
+form.search{
     float:right;
     padding-top:10px;
 }
-.search input{
+form.search input{
     float:left;
 }
-.search .text{
+form.search .text{
     padding:6px;
 }
-.search .link-button{
-    background:#6f2d1e;
+form.search .link-button{
     color:#fff;
     text-indent:9999;
     width:36px;
@@ -138,4 +159,14 @@ input.text.subscribe{
     border:none;
     display:inline-block;
     padding:0;
+    background: url("images/icon-search.png") #6f2d1e no-repeat 9px 9px;
+}
+.home_header{
+    padding-left:55px;
+}
+.slogan_holder{
+    font-size:33px;
+}
+span.orange{
+    color:#f75f0c;
 }

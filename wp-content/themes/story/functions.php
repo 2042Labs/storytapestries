@@ -76,7 +76,8 @@ function story_setup() {
 }
 
 function story_scripts() {
-    wp_enqueue_style( 'style-name', get_stylesheet_uri() );
+    wp_enqueue_style( 'theme-styles', get_stylesheet_uri() );
+    wp_enqueue_script( 'theme-scripts', get_template_directory_uri().'/js/main.js', array(), '1.0', false );
     //wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/example.js', array(), '1.0.0', true );
 }
 
