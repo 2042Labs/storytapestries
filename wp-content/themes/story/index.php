@@ -22,7 +22,17 @@ get_header(); ?>
 
 <div class="footer-subscribe">
     <div class="textblock">
-        Thank you for <span class="yellow">inspiring</span> me to remember how I used to teach
+        <div class="text">Thank you for <span class="yellow">inspiring</span> me to remember how I used to teach</div>
+        <div class="small-text">- Jen Flores, 1st Grade Teacher Barrett Elementary School, VA</div>
+    </div>
+    <div class="subscribe_block">
+        <div class="form-holder">
+            <div class="text">Stay in touch with us</div>
+            <form method="post">
+                <input type="text" placeholder="Email" name="email" class="text subscribe">
+                <input type="button" value="Subscribe" class="link-button subscribe">
+            </form>
+        </div>
     </div>
 </div>
 <?php //get_sidebar(); ?>

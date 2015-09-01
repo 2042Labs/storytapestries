@@ -201,8 +201,42 @@ span.orange{
 }
 .footer-subscribe{
     background:#f5f2ed;
+    overflow:hidden;
 }
 .footer-subscribe .textblock{
     width:50%;
     background:#b53711;
+    padding:77px 0;
+    font-size:32px;
+    color:#fff;
+    float:left;
 }
+.footer-subscribe .textblock>div{
+    width:461px;
+    margin:0 auto;
+}
+.footer-subscribe .textblock .text{
+    margin-bottom:8px;
+}
+.footer-subscribe .small-text{
+    font-size:14px;
+    opacity:0.6;
+}
+span.yellow{
+    color:#fff200;
+}
+.footer-subscribe .subscribe_block{
+    width:50%;
+    float:right;
+    padding-top:64px;
+}
+.footer-subscribe .subscribe_block .text{
+    font-size:22px;
+    margin-bottom:22px;
+}
+.footer-subscribe .subscribe_block .form-holder{
+    display:block;
+    margin:0 auto;
+    width:540px;
+}
+
