@@ -27,13 +27,20 @@
         </form>
     </div>
 </header>
-<div class="home_header">
-    <img class="logo_image" src="<?php echo get_template_directory_uri(); ?>/images/logo-image.png">
-    <div class="slogan_holder">
-    With <span class="orange">art</span>, understanding, 
-    with <span class="orange">understanding</span>, community.
+<?php if (is_home()) : ?>
+    <div class="home_header">
+        <div class="left_block">
+            <div>
+                <img class="logo_image" src="<?php echo get_template_directory_uri(); ?>/images/logo-image.png">
+            </div>
+            <div class="slogan_holder">
+                With <span class="orange">art</span>, understanding, 
+                with <span class="orange">understanding</span>, community.
+            </div>
+            <a href="/donate" class="link-button">Donate</a>
+        </div>
     </div>
-</div>
+<?php endif; ?>
 <div class="menu_line" role="navigation">
     <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'depth' => 2 ) ); ?>
     <form class="search">

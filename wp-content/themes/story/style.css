@@ -56,7 +56,7 @@ body{
     font-size:18px;
 }
 .link-button:hover{
-    text-decoration:underline;
+    background:#c23a05;
 }
 .header{
     background:#eed5a8;
@@ -72,6 +72,9 @@ body{
     background:#8d1f1f;
     cursor:pointer;
     border:none;
+}
+.link-button.subscribe:hover{
+    background:#cd2424;
 }
 .subscribe_block input{
     float:left;
@@ -163,10 +166,43 @@ form.search .link-button{
 }
 .home_header{
     padding-left:55px;
+    padding-top:30px;
+    overflow:hidden;
+    position:relative;
+    height:440px;
+}
+.home_header .left_block{
+    max-width:30%;
+    position:relative;
 }
 .slogan_holder{
     font-size:33px;
+    display:inline-block;
+    padding-top:36px;
+    font-weight: lighter;
+    width:365px;
+}
+.home_header .link-button{
+    font-size:23px;
+    padding:21px 65px;
+    position:absolute;
+    right:-90px;
+    top:320px;
 }
 span.orange{
     color:#f75f0c;
+}
+.middle-banner {
+    padding-top:56px;
+}
+.middle-banner img{
+    display:block;
+    margin:0 auto;
+}
+.footer-subscribe{
+    background:#f5f2ed;
+}
+.footer-subscribe .textblock{
+    width:50%;
+    background:#b53711;
 }

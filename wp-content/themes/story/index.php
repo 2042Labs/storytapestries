@@ -15,7 +15,15 @@
 
 get_header(); ?>
 
+<div class="middle-banner">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/middle-banner.png">
+</div>
 
 
+<div class="footer-subscribe">
+    <div class="textblock">
+        Thank you for <span class="yellow">inspiring</span> me to remember how I used to teach
+    </div>
+</div>
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>
