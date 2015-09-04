@@ -8,7 +8,8 @@ Version: 1.0
 body{
     padding:0;
     margin:0;
-    font-family:Helvetica,Verdana,san-serif,arial;
+    font-family:Helvetica, Tahoma,Verdana,sans-serif,arial;
+    font-size:14px;
 }
 .logo{
     margin-top:40px;
@@ -54,6 +55,7 @@ body{
     font-weight:bold;
     font-family:Helvetica;
     font-size:18px;
+    cursor:pointer;
 }
 .link-button:hover{
     background:#c23a05;
@@ -111,10 +113,11 @@ input.text.subscribe{
     text-decoration:none;
     font-family:Helvetica;
     text-transform:uppercase;
-    padding:20px 17px;
+    padding:19px 14px;
     line-height:17px;
     display:inline-block;
     font-weight:bold;
+    font-size:15px;
 }
 .menu-header a:hover{
     color:#fff;
@@ -153,6 +156,7 @@ form.search input{
 }
 form.search .text{
     padding:6px;
+    width:192px;
 }
 form.search .link-button{
     color:#fff;
@@ -205,11 +209,12 @@ span.orange{
 }
 .footer-subscribe .textblock{
     width:50%;
-    background:#b53711;
+    background:#b53711 url('images/qq-bg.png') no-repeat 80% 40px;
     padding:77px 0;
     font-size:32px;
     color:#fff;
     float:left;
+    min-width:636px;
 }
 .footer-subscribe .textblock>div{
     width:461px;
@@ -217,6 +222,7 @@ span.orange{
 }
 .footer-subscribe .textblock .text{
     margin-bottom:8px;
+    font-weight:bold;
 }
 .footer-subscribe .small-text{
     font-size:14px;
@@ -226,7 +232,6 @@ span.yellow{
     color:#fff200;
 }
 .footer-subscribe .subscribe_block{
-    width:50%;
     float:right;
     padding-top:64px;
 }
@@ -239,4 +244,123 @@ span.yellow{
     margin:0 auto;
     width:540px;
 }
+.post-list-block{
+    padding: 62px 38px 0;
+    overflow:hidden;
+    text-align:center;
+    margin-bottom:78px;
+}
+.post-list-block .post-block{
+    position:relative;
+    width:47%;
+    border:1px solid #b53711;
+    vertical-align:top;
+    height:351px;
+    display:inline-block;
+    margin-bottom:78px;
+    margin:22px 1% 0;
+    text-align:left;
+}
+.post-list-block .post-block .post-image{
+    float:right;
+}
+.post-list-block .post-short-text{
+    color:#2a2a2a;
+    padding:44px 11px 0 23px;
+    overflow:hidden;
+    font-size:15px;
+    line-height:19px;
+}
+.post-list-block .post-short-text h3{
+    text-transform:uppercase;
+    color:#57443e;
+    font-size:22px;
+    margin: 0 0 19px;
+}
+ul{
+    padding-left:10px;
+}
+li{
+    list-style:circle outside;
+    list-style-image:url('images/list-style-image.png');
+}
+.post-list-block .post-block .link-button{
+    position:absolute;
+    padding:21px 19px 19px;
+    bottom:16px;
+    font-size:15px;
+    right:188px;
+    line-height:14px;
+}
+.contact-block{
+    background:#eed5a8;
+    /*height:427px;*/
+    overflow:hidden;
+    margin-bottom:68px;
+}
 
+.contact-block .left-block{
+    text-align:right;
+    float:left;
+    min-width:636px;
+    width:50%;
+}
+.contact-block .right-block{
+    display:inline-block;
+}
+.contact-block .left-block img{
+    float:right;
+}
+.contact-block .contact-wrapper{
+    min-width:1200px;
+    overflow:hidden;
+}
+.middle-banner, .header, .footer-subscribe{
+    min-width:1200px;
+}
+.menu_line, .post-list-block{
+    min-width:1124px;
+}
+.home_header{
+    min-width:1145px;
+}
+.contact-block h3{
+    color:#424242;
+    margin-top:0;
+    margin-bottom:38px;
+    font-size:23px;
+    text-transform:uppercase;
+}
+.contact-block .text-holder{
+    margin:41px;
+    width:297px;
+    color:#57443e;
+}
+.contact-block .text-holder>div{
+    margin-bottom:4px;
+}
+.contact-block .text-holder>p{
+    margin: 24px 0 28px;
+}
+.contact-block a{
+    color:#b53711;
+}
+.contact-block a:hover{
+    text-decoration:none;
+}
+.icon{
+    display: inline-block;
+    height: 12px;
+    width: 22px;
+    margin-top:3px;
+    float:left;
+}
+.icon.icon-email{
+    background:url('images/icons.png') no-repeat 0 2px;
+}
+.icon.icon-phone{
+    background:url('images/icons.png') no-repeat  0 -16px;
+}
+.icon.icon-point{
+    background:url('images/icons.png') no-repeat 0 -34px;
+}
