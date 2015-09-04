@@ -232,8 +232,9 @@ span.yellow{
     color:#fff200;
 }
 .footer-subscribe .subscribe_block{
-    float:right;
+    display:inline-block;
     padding-top:64px;
+    padding-left:41px;
 }
 .footer-subscribe .subscribe_block .text{
     font-size:22px;
@@ -363,4 +364,8 @@ li{
 }
 .icon.icon-point{
     background:url('images/icons.png') no-repeat 0 -34px;
+}
+.galary-block .galary-title{
+    background:#000 url('images/galary-title.png') no-repeat center center;
+    height:126px;
 }

@@ -67,6 +67,9 @@ get_header(); ?>
         <a href="#" class="link-button">Read more</a>
     </div>
 </div>
+<div class="galary-block">
+    <div class="galary-title"></div>
+</div>
 <div class="contact-block">
     <div class="contact-wrapper">
         <div class="left-block">
