@@ -369,3 +369,9 @@ li{
     background:#000 url('images/galary-title.png') no-repeat center center;
     height:126px;
 }
+.galary-block  .wppa-cover-box{
+    width:47% !important;
+}
+.galary-block  .wppa-container-1{
+    max-width:1200px !important;
+}

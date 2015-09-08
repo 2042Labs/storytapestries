@@ -1,6 +1,6 @@
 /* -- WPPA+ Runtime parameters
 /*
-/* Dynamicly Created on 2015-09-08T07:01:25+00:00
+/* Dynamicly Created on 2015-09-08T08:25:36+00:00
 /*
 */
 
@@ -62,7 +62,7 @@
 	wppaEmailRequired = true;
 	wppaSlideBorderWidth = 0;
 	wppaAllowAjax = true;
-	wppaUsePhotoNamesInUrls = false;
+	wppaUsePhotoNamesInUrls = true;
 	wppaThumbTargetBlank = false;
 	wppaRatingMax = 5;
 	wppaRatingDisplayType = "graphic";
