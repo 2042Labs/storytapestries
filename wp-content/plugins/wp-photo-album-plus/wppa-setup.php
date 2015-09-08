@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * Contains all the setup stuff
-* Version 6.2.10
+* Version 6.2.12
 *
 */
 
@@ -920,6 +920,7 @@ Hide Camera info
 
 						// F Comments
 						'wppa_comment_login' 			=> 'no',
+						'wppa_comment_view_login' 		=> 'no',
 						'wppa_comments_desc'			=> 'no',
 						'wppa_comment_moderation'		=> 'logout',
 						'wppa_comment_email_required'	=> 'yes',

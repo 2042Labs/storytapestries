@@ -3,12 +3,13 @@
 * Package: wp-photo-album-plus
 *
 * display thumbnail albums
-* Version 6.2.10
+* Version 6.2.14
 */
 
 if ( ! defined( 'ABSPATH' ) ) die( "Can't load this file directly" );
 
 class AlbumWidget extends WP_Widget {
+
     /** constructor */
     function __construct() {
 		$widget_ops = array( 'classname' => 'wppa_album_widget', 'description' => __( 'WPPA+ Albums', 'wppa' ) );
@@ -83,6 +84,7 @@ class AlbumWidget extends WP_Widget {
 				$imgcount 		= $wpdb->get_var( $wpdb->prepare( 'SELECT COUNT(*) FROM '.WPPA_PHOTOS.' WHERE `album` = %s', $album['id']  ) );
 				$subalbumcount 	= $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM `".WPPA_ALBUMS."` WHERE `a_parent` = %s", $album['id'] ) );
 				$thumb 			= $image;
+
 				// Make the HTML for current picture
 				if ( $image && ( $imgcount > wppa_opt( 'wppa_min_thumbs' ) || $subalbumcount ) ) {
 					$link       = wppa_get_imglnk_a('albwidget', $image['id']);
@@ -119,7 +121,9 @@ class AlbumWidget extends WP_Widget {
 					}
 				}
 
-				$imgurl = wppa_fix_poster_ext( $imgurl, $image['id'] );
+				if ( $imageid ) {
+					$imgurl = wppa_fix_poster_ext( $imgurl, $image['id'] );
+				}
 
 				if ( $imgcount > wppa_opt( 'wppa_min_thumbs' ) || $skip == 'no' ) {
 
@@ -128,7 +132,7 @@ class AlbumWidget extends WP_Widget {
 					if ($link) {
 						if ( $link['is_url'] ) {	// Is a href
 							$widget_content .= "\n\t".'<a href="'.$link['url'].'" title="'.$title.'" target="'.$link['target'].'" >';
-							if ( wppa_is_video( $image['id'] ) ) {
+							if ( $imageid && wppa_is_video( $image['id'] ) ) {
 								$widget_content .= wppa_get_video_html( array( 	'id' 			=> $image['id'],
 																				'width' 		=> $width,
 																				'height' 		=> $height,
@@ -156,7 +160,6 @@ class AlbumWidget extends WP_Widget {
 									$siz['1'] = wppa_get_videoy( $thumb['id'] );
 								}
 								else {
-								//	$siz = getimagesize( wppa_get_photo_path( $thumb['id'] ) );
 									$siz['0'] = wppa_get_photox( $thumb['id'] );
 									$siz['1'] = wppa_get_photoy( $thumb['id'] );
 								}
@@ -183,19 +186,29 @@ class AlbumWidget extends WP_Widget {
 																						'cursor' 		=> $cursor,
 																						'events' 		=> $imgevents,
 																						'tagid' 		=> 'i-'.$image['id'].'-'.$wppa['mocc'],
-																						'title' 		=> wppa_zoom_in( $image['id'] )
+																						'title' 		=> wppa_zoom_in( $image['id'] ),
 																					 )
 																			 );
 									}
 									else {
-										$widget_content .= "\n\t\t".'<img id="i-'.$image['id'].'-'.$wppa['mocc'].'" title="'.wppa_zoom_in( $image['id'] ).'" src="'.$imgurl.'" width="'.$width.'" height="'.$height.'" style="'.$imgstyle.$cursor.'" '.$imgevents.' '.wppa_get_imgalt($image['id']).' >';
+										$widget_content .= "\n\t\t" .
+																'<img' .
+																	' id="i-'.$image['id'].'-'.$wppa['mocc'].'"' .
+																	' title="'.wppa_zoom_in( $image['id'] ).'"' .
+																	' src="'.$imgurl.'"' .
+																	' width="'.$width.'"' .
+																	' height="'.$height.'"' .
+																	' style="'.$imgstyle.$cursor.'" ' .
+																	$imgevents . ' ' .
+																	wppa_get_imgalt( $image['id'] ) .
+																	' >';
 									}
 								}
 								$widget_content .= "\n\t".'</a>';
 							}
 						}
 						else { // Is an onclick unit
-							if ( wppa_is_video( $image['id'] ) ) {
+							if ( $imageid && wppa_is_video( $image['id'] ) ) {
 								$widget_content .= wppa_get_video_html( array( 	'id' 			=> $image['id'],
 																				'width' 		=> $width,
 																				'height' 		=> $height,
@@ -205,17 +218,28 @@ class AlbumWidget extends WP_Widget {
 																				'cursor' 		=> 'pointer',
 																				'events' 		=> $imgevents.' onclick="'.$link['url'].'"',
 																				'tagid' 		=> 'i-'.$image['id'].'-'.$wppa['mocc'],
-																				'title' 		=> $title
+																				'title' 		=> $title,
 																			 )
 																	 );
 							}
 							else {
-								$widget_content .= "\n\t".'<img id="i-'.$image['id'].'-'.$wppa['mocc'].'" title="'.$title.'" src="'.$imgurl.'" width="'.$width.'" height="'.$height.'" style="'.$imgstyle.' cursor:pointer;" '.$imgevents.' onclick="'.$link['url'].'" '.wppa_get_imgalt($image['id']).' >';
+								$widget_content .= "\n\t" . 
+									'<img' .
+										' id="i-'.$image['id'].'-'.$wppa['mocc'].'"' .
+										' title="'.$title.'"' .
+										' src="'.$imgurl.'"' .
+										' width="'.$width.'"' .
+										' height="'.$height.'"' .
+										' style="'.$imgstyle.' cursor:pointer;" ' .
+										$imgevents .
+										' onclick="' . $link['url'] . '" ' .
+										wppa_get_imgalt($image['id']) .
+										' >';
 							}
 						}
 					}
 					else {
-						if ( wppa_is_video( $image['id'] ) ) {
+						if ( $imageid && wppa_is_video( $image['id'] ) ) {
 							$widget_content .= wppa_get_video_html( array( 	'id' 			=> $image['id'],
 																			'width' 		=> $width,
 																			'height' 		=> $height,
@@ -225,12 +249,22 @@ class AlbumWidget extends WP_Widget {
 																			'cursor' 		=> 'pointer',
 																			'events' 		=> $imgevents,
 																			'tagid' 		=> 'i-'.$image['id'].'-'.$wppa['mocc'],
-																			'title' 		=> $title
+																			'title' 		=> $title,
 																		 )
 																 );
 						}
 						else {
-							$widget_content .= "\n\t".'<img id="i-'.$image['id'].'-'.$wppa['mocc'].'" title="'.$title.'" src="'.$imgurl.'" width="'.$width.'" height="'.$height.'" style="'.$imgstyle.'" '.$imgevents.' '.wppa_get_imgalt($image['id']).' >';
+							$widget_content .= "\n\t" . 
+													'<img' .
+														' id="i-'.$image['id'].'-'.$wppa['mocc'].'"' .
+														' title="'.$title.'"' .
+														' src="'.$imgurl.'"' .
+														' width="'.$width.'"' .
+														' height="'.$height.'"' .
+														' style="'.$imgstyle.'" ' .
+														$imgevents . ' ' .
+														( $imageid ? wppa_get_imgalt( $image['id'] ) : '' ) . 
+														' >';
 						}
 					}
 

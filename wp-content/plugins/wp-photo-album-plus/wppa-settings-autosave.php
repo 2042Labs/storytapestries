@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * manage all options
-* Version 6.2.10
+* Version 6.2.12
 *
 */
 
@@ -4004,6 +4004,15 @@ global $wppa_tags;
 							$clas = 'wppa_comment_';
 							$tags = 'comment,access';
 							wppa_setting($slug, '1', $name, $desc, $html, $help, $clas, $tags);
+
+							$name = __('Comments view login', 'wppa');
+							$desc = __('Users must be logged in to see comments on photos.', 'wppa');
+							$help = esc_js(__('Check this box if you want users to be logged in to be able to see existing comments on individual photos.', 'wppa'));
+							$slug = 'wppa_comment_view_login';
+							$html = wppa_checkbox($slug);
+							$clas = 'wppa_comment_';
+							$tags = 'comment,access';
+							wppa_setting($slug, '1.1', $name, $desc, $html, $help, $clas, $tags);
 
 							$name = __('Last comment first', 'wppa');
 							$desc = __('Display the newest comment on top.', 'wppa');

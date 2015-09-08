@@ -69,6 +69,8 @@ get_header(); ?>
 </div>
 <div class="galary-block">
     <div class="galary-title"></div>
+    <?php echo do_shortcode('[wppa type="cover" album="1" size="564" align="center"]Any comment[/wppa]'); ?>
+    <?php echo do_shortcode('[wppa type="cover" album="2" size="564" align="center"]Any comment[/wppa]'); ?>
 </div>
 <div class="contact-block">
     <div class="contact-wrapper">

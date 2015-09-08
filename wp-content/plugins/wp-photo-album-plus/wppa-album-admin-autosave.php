@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * create, edit and delete albums
-* version 6.2.10
+* version 6.2.12
 *
 */
 
@@ -548,7 +548,7 @@ function _wppa_admin() {
 									<label><?php _e('Default photo tags:', 'wppa') ?></label>
 								</th>
 								<td>
-									<input type="text" id="default_tags" value="<?php echo $albuminfo['default_tags'] ?>" style="width: 100%" onkeyup="wppaAjaxUpdateAlbum(<?php echo $edit_id ?>, 'default_tags', this)" onchange="wppaAjaxUpdateAlbum(<?php echo $edit_id ?>, 'default_tags', this)" />
+									<input type="text" id="default_tags" value="<?php echo trim( $albuminfo['default_tags'], ',' ) ?>" style="width: 100%" onkeyup="wppaAjaxUpdateAlbum(<?php echo $edit_id ?>, 'default_tags', this)" onchange="wppaAjaxUpdateAlbum(<?php echo $edit_id ?>, 'default_tags', this)" />
 								</td>
 								<td>
 									<span class="description"><?php _e('Enter the tags that you want to be assigned to new photos in this album.', 'wppa') ?></span>

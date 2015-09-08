@@ -1,0 +1,23 @@
+
+/*Gold Plan Styles*/
+.crp-full-screen-popup{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999999;
+}
+
+/*Free Plan Styles*/
+.mfp-close {
+    margin-right: 2px;
+}
+
+.mfp-close-img {
+    width: 64px;
+    height: 64px;
+    background-image: url("../images/general/icons/close-icon-2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}

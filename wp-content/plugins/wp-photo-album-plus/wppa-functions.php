@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * Various funcions
-* Version 6.2.10
+* Version 6.2.12
 *
 */
 
@@ -352,7 +352,7 @@ global $wppa_session;
 				case '#cat':
 					$temp = explode( ',',$wppa['start_album'] );
 					$cat = isset( $temp[1] ) ? $temp[1] : '';
-					$cat = wppa_sanitize_tags( $cat );
+					$cat = trim( wppa_sanitize_tags( $cat ), ',' );
 					$wppa['is_cat'] = $cat;
 					if ( ! $cat ) {
 						wppa_dbg_msg( 'Missing cat #cat album spec: '.$wppa['start_album'], 'red', 'force' );
@@ -835,11 +835,13 @@ global $wppa_session;
 					$temp 		= explode( '.', $data );
 					$query 		= $wpdb->prepare( "SELECT * FROM `" . WPPA_INDEX . "` WHERE `slug` = %s", $temp['0'] );
 					$indexes 	= $wpdb->get_row( $query, ARRAY_A );
+					wppa_dbg_q( 'Q_SS' );
 					$ids 		= explode( '.', wppa_expand_enum( $indexes['albums'] ) );
 					$i = '1';
 					while ( $i < count( $temp ) ) {
 						$query 		= $wpdb->prepare( "SELECT * FROM `" . WPPA_INDEX . "` WHERE `slug` = %s", $temp[$i] );
 						$indexes 	= $wpdb->get_row( $query, ARRAY_A );
+						wppa_dbg_q( 'Q_SS' );
 						$ids 		= array_intersect( $ids, explode( '.', wppa_expand_enum( $indexes['albums'] ) ) );
 						$i++;
 					}
@@ -847,6 +849,7 @@ global $wppa_session;
 				else {
 					$query 		= $wpdb->prepare( "SELECT * FROM `" . WPPA_INDEX . "` WHERE `slug` = %s", $data );
 					$indexes 	= $wpdb->get_row( $query, ARRAY_A );
+					wppa_dbg_q( 'Q_SS' );
 					$ids 		= explode( '.', wppa_expand_enum( $indexes['albums'] ) );
 				}
 				if ( empty( $ids ) ) {
@@ -1041,12 +1044,6 @@ global $wppa_session;
 		return false;
 	}
 
-	// Owner and no start album -> no thumbs
-	if ( wppa( 'is_owner' ) && ! wppa( 'start_album' ) ) {
-		wppa_dbg_msg( 'Owner but no start_album, leave get_thumbs' );
-		return false;
-	}
-
 	// Init
 	$count_first = true;
 
@@ -1208,7 +1205,15 @@ global $wppa_session;
 		if ( strpos( $alb_ids, '.' ) !== false ) {
 			$alb_ids = wppa_series_to_array( $alb_ids );
 		}
-		$photo_ids = wppa_get_comten_ids( wppa( 'comten_count' ), (array) $alb_ids );
+
+		// Comments only visible if logged in or not required to log in
+		if ( ! wppa_switch( 'wppa_comment_view_login' ) || is_user_logged_in() ) {
+			$photo_ids = wppa_get_comten_ids( wppa( 'comten_count' ), (array) $alb_ids );
+		}
+		else {
+			$photo_ids = false;
+		}
+
 		$status = "`status` <> 'pending' AND `status` <> 'scheduled'";
 		if ( ! is_user_logged_in() ) $status .= " AND `status` <> 'private'";
 
@@ -1634,6 +1639,13 @@ global $wppa_session;
 		}
 	}
 
+	// Anything to look for?
+	if ( ! $query ) {
+	
+		// Not implemented or impossable shortcode
+		return false;
+	}
+	
 	// Do query and return result after copy result to $thumbs!!
 	$thumbs = wppa_do_get_thumbs_query( $query );
 	return $thumbs;

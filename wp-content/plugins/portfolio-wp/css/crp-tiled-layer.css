@@ -1,0 +1,31 @@
+#gallery .caption {
+	background: rgb(0,0,0);	
+	background: rgba(0,0,0,.6);	
+	text-align: center;
+	display: none;
+}
+
+#gallery .caption p {
+	color: #fff;
+	text-align: center;
+	padding: 3px;
+	font-family: 'Roboto', sans-serif;
+}
+
+#gallery .tile .zoom {
+	font-size: 30px;
+	color: #fff;
+	display: block;
+	position: absolute;
+	top: 48%;
+	left: 50%;
+	margin: -12px 0 0 -12px;
+	-moz-transition: top .5s;
+	-o-transition: top .5s;
+	-webkit-transition: top .5s;
+	transition: top .5s;
+}
+
+#gallery .tile:hover {
+    cursor: crosshair;
+}

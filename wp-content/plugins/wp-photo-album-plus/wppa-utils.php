@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * Contains low-level utility routines
-* Version 6.2.10
+* Version 6.2.12
 *
 */
 
@@ -1330,7 +1330,7 @@ static $old;
 function wppa_sanitize_cats($value) {
 	return wppa_sanitize_tags($value);
 }
-function wppa_sanitize_tags($value, $keepsemi = false) {
+function wppa_sanitize_tags($value, $keepsemi = false, $keephash = false ) {
 
 	// Sanitize
 	$value = strip_tags( $value );					// Security
@@ -1346,6 +1346,9 @@ function wppa_sanitize_tags($value, $keepsemi = false) {
 							'',
 							$value
 						);
+	if ( ! $keephash ) {
+		$value = str_replace( '#', '', $value );
+	}
 
 	$value = stripslashes($value);					// ...
 
@@ -1380,14 +1383,12 @@ function wppa_sanitize_tags($value, $keepsemi = false) {
 			}
 		}
 
-
 		// Capitalize exif tags
 		foreach ( array_keys( $temp ) as $idx ) {
 			if ( substr( $temp[$idx], 0, 2 ) == 'E#' ) {
 				$temp[$idx] = strtoupper( $temp[$idx] );
 			}
 		}
-
 
 		// Sort
 		asort($temp);
@@ -1644,9 +1645,9 @@ function wppa_remove_the_auto_page( $photo ) {
 
 	if ( ! $photo ) return '0';					// No photo id, no page
 	if ( ! wppa_is_int( $photo ) ) return '0';	// $photo not numeric
-	
+
 	$thumb = wppa_cache_thumb( $photo );		// Get photo info
-	
+
 	// Page exists ?
 	if ( wppa_page_exists( $thumb['page_id'] ) ) {
 		wp_delete_post( $thumb['page_id'], true );
