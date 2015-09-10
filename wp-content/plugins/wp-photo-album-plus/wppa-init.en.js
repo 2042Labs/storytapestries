@@ -1,6 +1,6 @@
 /* -- WPPA+ Runtime parameters
 /*
-/* Dynamicly Created on 2015-09-08T08:25:36+00:00
+/* Dynamicly Created on 2015-09-09T09:44:28+00:00
 /*
 */
 
@@ -10,7 +10,7 @@
 	wppaAnimationType = "fadeover";
 	wppaAnimationSpeed = 800;
 	wppaThumbnailAreaDelta = 14;
-	wppaTextFrameDelta = 596;
+	wppaTextFrameDelta = 594;
 	wppaBoxDelta = 14;
 	wppaSlideShowTimeOut = 2500;
 	wppaPreambule = 4;
@@ -78,7 +78,7 @@
 	wppaVoteForMe = "Vote for me!";
 	wppaVotedForMe = "Voted for me";
 	wppaSlideSwipe = false;
-	wppaMaxCoverWidth = 1024;
+	wppaMaxCoverWidth = 563;
 	wppaDownLoad = "Download";
 	wppaSlideToFullpopup = false;
 	wppaComAltSize = 75;
