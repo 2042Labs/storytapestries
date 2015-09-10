@@ -51,3 +51,8 @@ function story_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'story_scripts' );
+
+function story_get_subscribe_form(){
+    $subscriptionForm = \SimpleSubscribe\Developers::getSubscriptionForm();
+    return $subscriptionForm;
+}

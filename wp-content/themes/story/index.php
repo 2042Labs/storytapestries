@@ -103,10 +103,8 @@ get_header(); ?>
     <div class="subscribe_block">
         <div class="form-holder">
             <div class="text">Stay in touch with us</div>
-            <form method="post">
-                <input type="text" placeholder="Email" name="email" class="text subscribe">
-                <input type="button" value="Subscribe" class="link-button subscribe">
-            </form>
+            <?php echo do_shortcode('[simpleSubscribeForm]'); ?>
+            <input type="button" onclick="jQuery('header #frm-subscriptionFront .subscribeButton').click();" value="Subscribe" class="link-button subscribe">
         </div>
     </div>
 </div>

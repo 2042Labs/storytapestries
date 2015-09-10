@@ -64,16 +64,33 @@ body{
     background:#eed5a8;
     height:172px;
 }
+.subscribe_block h3,.subscribe_block th{
+    display:none;
+}
+.subscribe_block .subscribeButton{
+    display:none;
+}
+.subscribe_block .widgetGuts.shortcode {
+    float: left;
+}
+
+.subscribe_block .widgetGuts table td {
+    padding:0;
+}
+header .clear, .footer-subscribe .clear{
+    display:none;
+}
 .header .subscribe_block{
     float:right;
     margin-right:30px;
-    margin-top:55px;
+    margin-top:53px;
 }
 .link-button.subscribe{
     text-transform: none;
     background:#8d1f1f;
     cursor:pointer;
     border:none;
+    margin-top:2px;
 }
 .link-button.subscribe:hover{
     background:#cd2424;
@@ -96,7 +113,7 @@ input.text{
 :-moz-placeholder                   {color:#999;}/* Firefox 18- */
 :-ms-input-placeholder          {color:#999;}
 
-input.text.subscribe{
+input.text.subscribe, .subscribe_block #frm-email{
     margin-right:20px;
     width:300px;
 }
@@ -236,7 +253,7 @@ span.yellow{
     padding-top:64px;
     padding-left:41px;
 }
-.footer-subscribe .subscribe_block .text{
+.footer-subscribe .subscribe_block div.text{
     font-size:22px;
     margin-bottom:22px;
 }
@@ -408,6 +425,7 @@ li{
 .galary-block .coverphoto-frame img{
     padding:0;
     margin:0;
+    border-radius:0;
 }
 .galary-block .wppa_holder{
     text-align:center;

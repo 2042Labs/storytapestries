@@ -21,10 +21,8 @@
 <header class="header">
     <a href="/" class="logo"><img  src="<?php echo get_template_directory_uri()."/images/logo.png"; ?>"></a>
     <div class="subscribe_block">
-        <form method="post">
-            <input type="text" class="text subscribe" name="email" placeholder="Email">
-            <input type="button" class="link-button subscribe" value="Subscribe">
-        </form>
+        <?php echo do_shortcode('[simpleSubscribeForm]'); ?>
+        <input type="button" onclick="jQuery('header #frm-subscriptionFront .subscribeButton').click();" class="link-button subscribe" value="Subscribe">
     </div>
 </header>
 <?php if (is_home()) : ?>
