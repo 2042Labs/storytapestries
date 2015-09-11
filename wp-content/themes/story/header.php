@@ -37,6 +37,9 @@
             </div>
             <a href="/donate" class="link-button">Donate</a>
         </div>
+        <div class="slider_holder">
+            <?php echo do_shortcode("[huge_it_slider id='1']"); ?>
+        </div>
     </div>
 <?php endif; ?>
 <div class="menu_line" role="navigation">
